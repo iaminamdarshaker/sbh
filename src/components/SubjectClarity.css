@@ -1,0 +1,139 @@
+.clarity-section {
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  z-index: 10;
+  background-color: var(--primary);
+}
+
+.clarity-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.text-left {
+  text-align: left;
+}
+
+.clarity-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.clarity-desc {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+}
+
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateX(10px);
+  border-color: var(--accent);
+}
+
+.feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(37, 99, 235, 0.1);
+}
+
+.icon-blue {
+  color: var(--accent);
+}
+
+.feature-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Video Section */
+.clarity-video-container {
+  position: relative;
+}
+
+.video-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background: rgba(37, 99, 235, 0.3);
+  filter: blur(80px);
+  z-index: -1;
+  border-radius: 50%;
+}
+
+.clarity-video {
+  width: 100%;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.floating-badge {
+  position: absolute;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-main);
+  animation: float 4s ease-in-out infinite;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.badge-1 {
+  top: 10%;
+  right: -5%;
+  animation-delay: 0s;
+}
+
+.badge-2 {
+  bottom: 20%;
+  left: -10%;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+@media (max-width: 992px) {
+  .clarity-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .text-left {
+    text-align: center;
+  }
+  
+  .clarity-desc {
+    text-align: center;
+  }
+  
+  .badge-1 { right: 5%; }
+  .badge-2 { left: 5%; }
+}

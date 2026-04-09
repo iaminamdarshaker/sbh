@@ -1,0 +1,120 @@
+.course-section {
+  background-color: var(--secondary);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.course-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mt-5 {
+  margin-top: 5rem;
+}
+
+.category-title {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.course-card {
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.course-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.1), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.course-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+  border-color: rgba(37, 99, 235, 0.3);
+}
+
+.course-card:hover::before {
+  opacity: 1;
+}
+
+.course-card > * {
+  z-index: 1;
+}
+
+.course-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: transform 0.4s ease;
+}
+
+.course-card:hover .course-icon-wrapper {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.course-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.course-title {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.course-desc {
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.foundation-subjects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.dot {
+  color: var(--accent);
+}
+
+.course-btn {
+  width: 100%;
+}
+
+.course-card:hover .course-btn {
+  background-color: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}

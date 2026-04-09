@@ -1,0 +1,167 @@
+/* Fallback Layout */
+.hero-container-standard {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--primary);
+}
+
+.hero-static {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Scrubbing Layout */
+.hero-scroll-container {
+  position: relative;
+  width: 100%;
+  /* Restricts pinning effect strictly to shorter distance (60vh of actual scroll) for faster engagement */
+  height: 160vh;
+  background-color: var(--primary);
+}
+
+.hero-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+
+/* Shared Global Video & Overlay Elements */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Lightweight gradient mapping */
+  background: linear-gradient(180deg, rgba(10, 10, 15, 0.4) 0%, rgba(10, 10, 15, 0.85) 100%);
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  z-index: 10;
+  width: 100%;
+  padding-top: 5rem;
+  /* Hint for browser to prepare rendering these properties via GPU */
+  will-change: transform, opacity; 
+}
+
+/* Cinematic Reveal Texts */
+.hero-scroll-text {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translate(0, -50%);
+  color: var(--text-main);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  text-align: center;
+  z-index: 15;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform, opacity;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+  letter-spacing: -0.5px;
+}
+
+/* Cinematic Reveal CTA */
+.hero-scroll-cta {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Base static setup, overridden by JS */
+  display: flex;
+  gap: 1.5rem;
+  z-index: 20;
+  opacity: 0;
+  will-change: transform, opacity;
+  pointer-events: none; /* Safely defaults to none, JS re-enables it */
+}
+
+/* Styling adjustments for premium modern finish */
+.cinematic-btn {
+  box-shadow: 0 0 25px rgba(37, 99, 235, 0.4);
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cinematic-btn-outline {
+  background: rgba(10, 10, 15, 0.4);
+  backdrop-filter: blur(8px);
+}
+
+.hero-trustline {
+  color: var(--accent);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+
+.hero-highlight {
+  background: linear-gradient(135deg, #60a5fa, #2563eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+  line-height: 1.5;
+}
+
+.hero-author {
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 100;
+}
+
+@media (max-width: 768px) {
+  .hero-content { padding-top: 3rem; }
+  .hero-cta { flex-direction: column; width: 100%; max-width: 300px; margin: 0 auto; }
+  .hero-cta .btn { width: 100%; }
+}
