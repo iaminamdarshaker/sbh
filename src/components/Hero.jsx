@@ -200,8 +200,8 @@ const Hero = () => {
             <span className="hero-highlight">Starts Making Sense.</span>
           </h1>
           <p className="hero-subtitle">
-            Scholar's Biology House<br/>
-            <span className="hero-author">By Sayed Amer Faraz Khatib</span>
+            SCHOLAR'S BIOLOGY HOUSE (FOR FUTURE MEDICOS)<br/>
+            <span className="hero-author">By SYED AMER FARAZ RAISUDDIN KHATIB<br/>M-PHARM (PHARMACOLOGY) PhD SCHOLAR</span>
           </p>
           
           <div className="hero-cta">

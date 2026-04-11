@@ -4,15 +4,15 @@ import { BookOpen, GraduationCap, Microscope } from 'lucide-react';
 
 const Courses = () => {
   const neetCourses = [
-    { title: '11th NEET Batch', icon: <Microscope className="course-icon" />, desc: 'Complete NEET preparation with concept clarity', color: '#3b82f6' },
-    { title: '12th NEET Batch', icon: <BookOpen className="course-icon" />, desc: 'Complete NEET preparation with concept clarity', color: '#10b981' },
-    { title: 'Dropper Batch', icon: <GraduationCap className="course-icon" />, desc: 'Complete NEET preparation with concept clarity', color: '#8b5cf6' },
+    { title: '11th NEET SCHOLAR BATCH', icon: <Microscope className="course-icon" />, desc: 'Complete NEET preparation with concept clarity', color: '#3b82f6' },
+    { title: '12th NEET SCHOLARS BATCH', icon: <BookOpen className="course-icon" />, desc: 'Complete NEET preparation with concept clarity', color: '#10b981' },
+    { title: 'DROPPER SCHOLAR BATCH', icon: <GraduationCap className="course-icon" />, desc: 'Complete NEET preparation with concept clarity', color: '#8b5cf6' },
   ];
 
   const foundationCourses = [
-    { title: '8th Class', icon: <BookOpen className="course-icon" /> },
-    { title: '9th Class', icon: <BookOpen className="course-icon" /> },
-    { title: '10th Class', icon: <BookOpen className="course-icon" /> },
+    { title: '8th SCHOLAR BATCH', icon: <BookOpen className="course-icon" /> },
+    { title: '9th SCHOLAR BATCH', icon: <BookOpen className="course-icon" /> },
+    { title: '10th SCHOLAR BATCH', icon: <BookOpen className="course-icon" /> },
   ];
 
   const sectionRef = useRef(null);
@@ -43,7 +43,7 @@ const Courses = () => {
         <p className="section-subtitle">Discover the perfect batch for your academic journey.</p>
         
         <div className="course-category">
-          <h3 className="category-title">NEET / Senior Classes</h3>
+          <h3 className="category-title">NEET</h3>
           <div className="course-grid">
             {neetCourses.map((course, index) => (
               <div className="course-card glass" key={index}>

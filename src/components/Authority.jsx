@@ -29,7 +29,8 @@ const Authority = () => {
             <h3 className="auth-subtitle">Meet Your Mentor</h3>
             <h2 className="auth-title">
               Learn from <br />
-              <span className="hero-highlight">Sayed Amer Faraz Khatib</span>
+              <span className="hero-highlight">SYED AMER FARAZ RAISUDDIN KHATIB</span><br />
+              <span style={{fontSize: "0.5em", fontWeight: "normal"}}>M-PHARM (PHARMACOLOGY) PhD SCHOLAR</span>
             </h2>
             <div className="auth-divider"></div>
             <p className="auth-desc">
@@ -37,7 +38,7 @@ const Authority = () => {
             </p>
             <div className="trust-badges">
               <div className="trust-badge">
-                <span className="trust-number">10+</span>
+                <span className="trust-number">14+</span>
                 <span className="trust-text">Years Exp.</span>
               </div>
               <div className="trust-badge">

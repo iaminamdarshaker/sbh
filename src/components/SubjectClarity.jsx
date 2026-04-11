@@ -29,7 +29,7 @@ const SubjectClarity = () => {
       <div className="container">
         <div className="clarity-grid">
           <div className="clarity-content">
-            <h2 className="section-title text-left">Confusion se <span className="hero-highlight">Clarity</span> tak</h2>
+            <h2 className="section-title text-left">STUDY WITHOUT <span className="hero-highlight">STRESS</span></h2>
             <p className="clarity-desc">
               Biology | Physics | Chemistry — sab easy aur structured tareeke se samjhaya jata hai.
             </p>
