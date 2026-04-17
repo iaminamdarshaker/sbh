@@ -55,7 +55,7 @@ const Footer = () => {
         
         <div className="footer-bottom">
           <p>&copy; {new Date().getFullYear()} Scholar's Biology House. All rights reserved.</p>
-          <p className="designer-tag">Designed for Sayed Amer Faraz Khatib</p>
+          <p className="designer-tag">Designed by Shakeroddin Inamdar</p>
         </div>
       </div>
     </footer>

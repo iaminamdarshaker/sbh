@@ -9,7 +9,7 @@ const Hero = () => {
   const text2Ref = useRef(null);
   const ctaRef = useRef(null);
   
-  const [isLowPower, setIsLowPower] = useState(false);
+  const [isMobileMode, setIsMobileMode] = useState(false);
   const [videoSrc, setVideoSrc] = useState("/assets/hero-video-optimized.mp4");
 
   const state = useRef({
@@ -18,21 +18,24 @@ const Hero = () => {
   });
 
   useEffect(() => {
-    // Fallback heuristic for low-end / mobile mapping to autoplay
-    const checkPerformance = () => {
-      const mobile = window.innerWidth <= 768;
-      // navigator.hardwareConcurrency gives logical cores, proxy for device capability
-      const lowCores = navigator.hardwareConcurrency ? navigator.hardwareConcurrency < 4 : false;
-      
-      const useFallback = mobile || lowCores;
-      setIsLowPower(useFallback);
-      setVideoSrc(useFallback ? "/assets/hero-video-mobile.mp4" : "/assets/hero-video-optimized.mp4");
+    const handleResize = () => {
+      const mobile = window.innerWidth < 768;
+      setIsMobileMode(mobile);
+      setVideoSrc(mobile ? "/assets/hero-video-mobile.mp4" : "/assets/hero-video-optimized.mp4");
     };
-    checkPerformance();
+    
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-    // If falling back to autoplay loop, bypass any intensive loop and let hardware native handle it
-    if (window.innerWidth <= 768 || (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4)) {
-        return;
+  useEffect(() => {
+    if (isMobileMode) {
+      if (videoRef.current) {
+        // Ensure playback actually starts when entering mobile mode
+        videoRef.current.play().catch(e => console.log("Autoplay prevented:", e));
+      }
+      return;
     }
 
     let animationFrameId;
@@ -162,11 +165,11 @@ const Hero = () => {
       window.removeEventListener('scroll', handleScroll);
       if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [isMobileMode]);
 
   return (
-    <section className={isLowPower ? "hero-container-standard" : "hero-scroll-container"} ref={containerRef}>
-      <div className={isLowPower ? "hero-static" : "hero-sticky"}>
+    <section className={isMobileMode ? "hero-container-standard" : "hero-scroll-container"} ref={containerRef}>
+      <div className={isMobileMode ? "hero-static" : "hero-sticky"}>
         <video 
           ref={videoRef}
           src={videoSrc}
@@ -175,13 +178,13 @@ const Hero = () => {
           preload="auto"
           muted 
           playsInline
-          loop={isLowPower}
-          autoPlay={isLowPower}
+          loop={isMobileMode}
+          autoPlay={isMobileMode}
         />
         <div className="hero-overlay"></div>
         
         {/* Cinematic Emotion Texts (Only mapped if Not low-power static mode) */}
-        {!isLowPower && (
+        {!isMobileMode && (
           <>
             <div className="hero-scroll-text" ref={text1Ref}>Too much to study?</div>
             <div className="hero-scroll-text" ref={text2Ref}><span className="hero-highlight">Everything starts making sense</span></div>
